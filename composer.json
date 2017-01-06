@@ -1,0 +1,26 @@
+{
+    "name": "geckob/firebase",
+    "description": "PHP package for Firebase wrapper",
+    "license": "MIT",
+    "keywords" : [
+        "firebase",
+        "firebase laravel",
+        "firebase php",
+        "google"
+    ],
+    "require": {
+        "google/auth": "^0.11.1",
+         "php": ">=5.3.0"
+    },
+    "authors": [
+        {
+            "name": "Luqman",
+            "email": "luqmanrom@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Geckob\\Firebase\\": "src"
+        }
+    }    
+}
