@@ -16,9 +16,9 @@ composer require geckob/firebase
 ## Usages
 
 
-1. Authentication
+### 1. Authentication
 
-	### 1.1 Generate Service Account secret file
+	**1.1 Generate Service Account secret file**
 
 		This package supported authentication using secrets file generated in the Service Account page.
 
@@ -31,11 +31,11 @@ composer require geckob/firebase
 		5. Scroll down and click "Generate New Private Key" button. Save it to somewhere secure but 
 			accessible for your internal server
 
-	### 1.2 Use the secret file to authenticate 
+	**1.2 Use the secret file to authenticate**
 
 		$a = new \Geckob\Firebase\Firebase('path_to_your_secret_file.json');
 
-2. CRUD Operation
+### 2. CRUD Operation
 
 	The CRUD operation on Firebase Database is based on the [Firebase REST API Docs](https://www.firebase.com/docs/rest-api.html).
 
