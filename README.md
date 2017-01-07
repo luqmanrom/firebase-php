@@ -18,44 +18,44 @@ composer require geckob/firebase
 
 ### 1. Authentication
 
-	**1.1 Generate Service Account secret file**
+**1.1 Generate Service Account secret file**
 
-		This package supported authentication using secrets file generated in the Service Account page.
+This package supported authentication using secrets file generated in the Service Account page.
 
-		To generate the secret file, follow this steps
+To generate the secret file, follow this steps
 
-		1. Go to [Firebase Console](https://console.firebase.google.com/)
-		2. Choose your project
-		3. Click the gear icon and go to Project Settings
-		4. Click the Service Accounts tab
-		5. Scroll down and click "Generate New Private Key" button. Save it to somewhere secure but 
-			accessible for your internal server
+1. Go to [Firebase Console](https://console.firebase.google.com/)
+2. Choose your project
+3. Click the gear icon and go to Project Settings
+4. Click the Service Accounts tab
+5. Scroll down and click "Generate New Private Key" button. Save it to somewhere secure but 
+	accessible for your internal server
 
-	**1.2 Use the secret file to authenticate**
+**1.2 Use the secret file to authenticate**
 
-		$a = new \Geckob\Firebase\Firebase('path_to_your_secret_file.json');
+	$a = new \Geckob\Firebase\Firebase('path_to_your_secret_file.json');
 
 ### 2. CRUD Operation
 
-	The CRUD operation on Firebase Database is based on the [Firebase REST API Docs](https://www.firebase.com/docs/rest-api.html).
+The CRUD operation on Firebase Database is based on the [Firebase REST API Docs](https://www.firebase.com/docs/rest-api.html).
 
-	Assuming the authentication is succesfully done,
+Assuming the authentication is succesfully done,
 
-	```
-	// Set the parent node
-	$firebase = $firebase->setPath('bookings/');
+```
+// Set the parent node
+$firebase = $firebase->setPath('bookings/');
 
-	// Create a new node with key = test and value = testValue. 
-	// If the node already exist, it will update the value
-	$firebase->set('test','testValue');
+// Create a new node with key = test and value = testValue. 
+// If the node already exist, it will update the value
+$firebase->set('test','testValue');
 
-	// Get the value of node with key = test
-	$firebase->get('test');
+// Get the value of node with key = test
+$firebase->get('test');
 
-	// Delete the node with key = test
-	$firebase->delete('test');
+// Delete the node with key = test
+$firebase->delete('test');
 
-	```
+```
 
 ## Others
 
