@@ -10,7 +10,7 @@ use Google\Auth\Middleware\AuthTokenMiddleware;
 use Geckob\Firebase\Middleware\EnsureJson;
 use GuzzleHttp\Psr7\Uri;
 
-class Guzzle6HttpHandler implements \App\Helpers\Firebase\HttpHandler\FirebaseInterface
+class Guzzle6HttpHandler implements FirebaseInterface
 {
 
     protected $config;

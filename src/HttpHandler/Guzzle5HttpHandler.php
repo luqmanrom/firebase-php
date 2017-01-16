@@ -10,7 +10,7 @@ use GuzzleHttp\Event\Emitter;
 use GuzzleHttp\Event\BeforeEvent;
 
 
-class Guzzle5HttpHandler implements \App\Helpers\Firebase\HttpHandler\FirebaseInterface
+class Guzzle5HttpHandler implements FirebaseInterface
 {
     protected $config;
 
