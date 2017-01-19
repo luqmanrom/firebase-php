@@ -29,29 +29,7 @@ class Firebase
         $config = file_get_contents($secretFilePath);
         return json_decode($config, true);
     }
-
-
-//    public function getIDToken()
-//    {
-//        $scopes = [
-//            'https://www.googleapis.com/auth/userinfo.email',
-//            'https://www.googleapis.com/auth/firebase.database',
-//        ];
-//
-//        $credentials = [
-//            'client_email' => $this->config['client_email'],
-//            'client_id' => $this->config['client_id'],
-//            'private_key' => $this->config['private_key'],
-//        ];
-//
-//        $response =new ServiceAccountCredentials($scopes, $credentials);
-//
-//        $token = $response->fetchAuthToken();
-//
-//        return $token;
-//
-//    }
-
+    
     public function setPath($path)
     {
         $this->path = $path;
