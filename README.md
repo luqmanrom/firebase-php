@@ -33,15 +33,16 @@ To generate the secret file, follow this steps
 
 **1.2 Use the secret file to authenticate**
 
-	$a = new \Geckob\Firebase\Firebase('path_to_your_secret_file.json');
-
+```php
+    $firebase = new \Geckob\Firebase\Firebase('path_to_your_secret_file.json');
+```
 ### 2. CRUD Operation
 
 The CRUD operation on Firebase Database is based on the [Firebase REST API Docs](https://www.firebase.com/docs/rest-api.html).
 
 Assuming the authentication is succesfully done,
 
-```
+```php
 // Set the parent node
 $firebase = $firebase->setPath('bookings/');
 
