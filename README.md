@@ -49,6 +49,13 @@ $firebase = $firebase->setPath('bookings/');
 // If the node already exist, it will update the value
 $firebase->set('test','testValue');
 
+
+// Same as set 
+$firebase->push([
+	'test'  => 'value',
+	'test1' => 'value1'
+]);
+
 // Get the value of node with key = test
 $firebase->get('test');
 
@@ -56,6 +63,8 @@ $firebase->get('test');
 $firebase->delete('test');
 
 ```
+
+// 
 
 ## Others
 
