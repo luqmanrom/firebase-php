@@ -43,12 +43,15 @@ The CRUD operation on Firebase Database is based on the [Firebase REST API Docs]
 Assuming the authentication is succesfully done,
 
 ```php
-// Set the parent node
+// Set the parent node. [OPTIONAL]
 $firebase = $firebase->setPath('bookings/');
 
 // Create a new node with key = test and value = testValue. 
 // If the node already exist, it will update the value
 $firebase->set('test','testValue');
+
+// Support multiple nodes, if it doesnt exist, it will create the node
+$firebase->set('testObject/testKey', 'testValueObject');
 
 
 // Same as set 
