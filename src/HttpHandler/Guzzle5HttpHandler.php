@@ -47,7 +47,8 @@ class Guzzle5HttpHandler implements FirebaseInterface
 
     public function set($key, $value)
     {
-        $response = $this->http->put($this->path . $key . '.json', ['body' => json_encode($value)]);
+        $response = $this->http->put($this->path . $key . '.json', 
+            ['body' => json_encode($value), 'timeout' => $this->config['timeout']]);
 
         return (string) $response->getBody();
 
@@ -55,7 +56,7 @@ class Guzzle5HttpHandler implements FirebaseInterface
 
     public function get($key)
     {
-        $response = $this->http->get($this->path. $key . '.json');
+        $response = $this->http->get($this->path. $key . '.json',  ['timeout' => $this->config['timeout']]);
 
         return (string) $response->getBody();
 
@@ -64,14 +65,15 @@ class Guzzle5HttpHandler implements FirebaseInterface
 
     public function delete($key)
     {
-        $response = $this->http->delete($this->path. $key . '.json');
+        $response = $this->http->delete($this->path. $key . '.json',  ['timeout' => $this->config['timeout']]);
 
         return (string) $response->getBody();
     }
 
     public function push($arr)
     {
-        $response = $this->http->post($this->path . '.json', ['body' => json_encode($arr)]);
+        $response = $this->http->post($this->path . '.json', 
+            ['body' => json_encode($arr), 'timeout' => $this->config['timeout']]);
 
         return (string) $response->getBody();
     }
