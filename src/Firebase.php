@@ -14,13 +14,13 @@ class Firebase
 
     protected $path;
 
-    public function __construct($secretFilePath = null)
+    public function __construct($secretFilePath = null, $config = ['timeout' => 0])
     {
         if (func_num_args() == 0) {
             $secretFilePath = config('laravel-firebase.secretPath');
         }
 
-        $this->config = $this->extractSecrets($secretFilePath);
+        $this->config = array_merge($this->extractSecrets($secretFilePath), $config);
 
         $googleConsole = new GoogleConsole($this->config);
 
@@ -33,7 +33,7 @@ class Firebase
         $config = file_get_contents($secretFilePath);
         return json_decode($config, true);
     }
-    
+
     public function setPath($path)
     {
         $this->path = $path;

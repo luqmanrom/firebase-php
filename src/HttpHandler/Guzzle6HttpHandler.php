@@ -14,9 +14,9 @@ class Guzzle6HttpHandler implements FirebaseInterface
 {
 
     protected $config;
-    
+
     protected $databaseUri;
-    
+
     protected $http;
 
     protected $path;
@@ -53,7 +53,9 @@ class Guzzle6HttpHandler implements FirebaseInterface
     public function set($key, $value)
     {
 
-        $response = $this->http->request('PUT', $this->databaseUri->withPath($this->path.$key), ['body' => json_encode($value)]);
+        $response = $this->http->request('PUT', $this->databaseUri->withPath($this->path.$key),
+            ['body' => json_encode($value), 'timeout' => $this->config['timeout']]
+        );
 
         return $response->getBody()->getContents();
 
@@ -63,7 +65,8 @@ class Guzzle6HttpHandler implements FirebaseInterface
     public function get($key)
     {
 
-        $response = $this->http->request('GET', $this->databaseUri->withPath($this->path. $key));
+        $response = $this->http->request('GET', $this->databaseUri->withPath($this->path. $key,
+            ['timeout' => $this->config['timeout']]));
 
         return $response->getBody()->getContents();
 
@@ -71,14 +74,16 @@ class Guzzle6HttpHandler implements FirebaseInterface
 
     public function delete($key)
     {
-        $response = $this->http->request('DELETE', $this->databaseUri->withPath($this->path. $key));
+        $response = $this->http->request('DELETE', $this->databaseUri->withPath($this->path. $key,
+            ['timeout' => $this->config['timeout']]));
 
         return $response->getBody()->getContents();
     }
 
     public function push($arr)
     {
-        $response = $this->http->request('POST', $this->databaseUri->withPath($this->path), ['body' => json_encode($arr)]);
+        $response = $this->http->request('POST', $this->databaseUri->withPath($this->path),
+            ['body' => json_encode($arr), 'timeout' => $this->config['timeout']]);
 
         return $response->getBody()->getContents();
     }
