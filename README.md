@@ -54,7 +54,7 @@ $firebase->set('test','testValue');
 $firebase->set('testObject/testKey', 'testValueObject');
 
 
-// Same as set 
+// Same as set but without keys. This requires to call setPath first to identify the parent
 $firebase->push([
 	'test'  => 'value',
 	'test1' => 'value1'
@@ -63,8 +63,18 @@ $firebase->push([
 // Get the value of node with key = test
 $firebase->get('test');
 
+// Get the value of using multilevel key
+$firebase->get('testObject/testKey');
+
+
+
+
 // Delete the node with key = test
 $firebase->delete('test');
+
+// Delete the multilevel node and all it's children
+$firebase->delete('testObject/testKey');
+
 
 ```
 
