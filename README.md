@@ -1,5 +1,9 @@
 # Firebase PHP Wrapper
 
+
+[![Packagist](https://img.shields.io/packagist/dt/geckob/firebase.svg)](https://packagist.org/packages/geckob/firebase)
+
+
 This package makes the authentication and the basic CRUD
 operation on Firebase Database as simple as possible. 
 For now, it supports both Guzzle 5 and Guzzle 6. 
